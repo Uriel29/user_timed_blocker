@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="system" method="upgrade">
+	<name>plg_system_user_timed_blocker</name>
+	<author>Ponto Mega</author>
+	<creationDate>2020-10-15</creationDate>
+	<copyright>Created by Ponto Mega with generator-joomla3 by @diarcastro</copyright>
+	<license>GNU/Public</license>
+	<authorEmail>contato@pontomega.com.br</authorEmail>
+	<authorUrl>pontomega.com.br</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_SYSTEM_USER_TIMED_BLOCKER_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="user_timed_blocker">user_timed_blocker.php</filename>
+		<folder>fields</folder>
+		<folder>language</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_system_user_timed_blocker.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_system_user_timed_blocker.sys.ini</language>
+		<language tag="pt-BR">language/pt-BR/pt-BR.plg_system_user_timed_blocker.ini</language>
+		<language tag="pt-BR">language/pt-BR/pt-BR.plg_system_user_timed_blocker.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/plugins/system/user_timed_blocker/fields">
+				<field
+						name="final_date"
+						default="13"
+						type="text"
+						label="PLG_SYSTEM_USER_TIMED_BLOCKER_FIELD_FINAL_DATE_LABEL"
+						description="PLG_SYSTEM_USER_TIMED_BLOCKER_FIELD_FINAL_DATE_DESC" />
+				<field name="grupos_do_aluno"
+						type="usergroup"
+						multiple="true"
+						label="PLG_SYSTEM_USER_TIMED_BLOCKER_FIELD_GRUPO_ALUNOS_LABEL"
+						description="PLG_SYSTEM_USER_TIMED_BLOCKER_FIELD_GRUPO_ALUNOS_DESC" />
+
+				<field name="assigned_group"
+					default="2"
+						type="usergrouplist"
+						label="PLG_SYSTEM_USER_TIMED_BLOCKER_FIELD_ASSIGNED_GROUP_LABEL"
+						description="PLG_SYSTEM_USER_TIMED_BLOCKER_FIELD_ASSIGNED_GROUP_DESC">
+						<option value="none">JNONE</option>
+						</field>
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

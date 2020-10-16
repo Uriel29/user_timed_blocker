@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+<fields name="params">
+    <fieldset name="advanced">
+    <field type="spacer" hr="true" />
+         <field name="nova_data" type="calendar" default="" label="NEW_DATE" />
+    </fieldset>
+</fields>
+</form>
