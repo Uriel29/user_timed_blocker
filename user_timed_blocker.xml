@@ -11,6 +11,7 @@
 	<description>PLG_SYSTEM_USER_TIMED_BLOCKER_XML_DESCRIPTION</description>
 	<files>
 		<filename plugin="user_timed_blocker">user_timed_blocker.php</filename>
+		<filename>renewuser.xml </filename>
 		<folder>fields</folder>
 		<folder>language</folder>
 	</files>
