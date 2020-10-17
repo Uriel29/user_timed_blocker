@@ -64,13 +64,10 @@ if (JFactory::getApplication()->isClient('administrator')){
 		$date1 = new DateTime(date('Y-m-d H:i:s'));
 		$date2 = new DateTime($user->registerDate);
 		$userparams = json_decode($user->params);
-
-		$date3 = new DateTime($userparams->nova_data);
-	
-		if ($date3 > $date2 ){
-		
-			$interval = $date1->diff($date3);	
-		
+		if (($userparams->nova_data != '0000-00-00 00:00:00') and ($userparams->nova_data){
+		$date3 = new DateTime($novaData);
+		$interval = $date1->diff($date3);
+		$novoPrazo = $userparams->novo_prazo;
 		}
 		else{
 			$interval = $date1->diff($date2);
@@ -87,7 +84,11 @@ if (JFactory::getApplication()->isClient('administrator')){
 		$alunosGroups = $this->params->get('grupos_do_aluno');
 		$assignedGroup = $this->params->get('assigned_group');
 		$ok = 'false';
-		if ($meses >= $this->params->get('final_date') and (!empty(array_intersect($alunosGroups, $user->groups)))){
+		$finalDate = $this->params->get('final_date');
+		if ($novoPrazo){
+		$finalDate = $novoPrazo;
+		}
+		if ($meses >= $finalDate and (!empty(array_intersect($alunosGroups, $user->groups)))){
 			$ok = 'true';
 		}
 		if ($ok == 'true'){
