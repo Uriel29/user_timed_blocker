@@ -4,6 +4,7 @@
     <fieldset name="advanced">
     <field type="spacer" hr="true" />
          <field name="nova_data" type="calendar" default="" label="NEW_DATE" />
+         <field name="novo_prazo" type="calendar" default="" label="NEW_TERM" />
     </fieldset>
 </fields>
 </form>
