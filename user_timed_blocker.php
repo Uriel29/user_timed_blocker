@@ -64,7 +64,7 @@ if (JFactory::getApplication()->isClient('administrator')){
 		$date1 = new DateTime(date('Y-m-d H:i:s'));
 		$date2 = new DateTime($user->registerDate);
 		$userparams = json_decode($user->params);
-		if (($userparams->nova_data != '0000-00-00 00:00:00') and ($userparams->nova_data){
+		if (($userparams->nova_data != '0000-00-00 00:00:00') and ($userparams->nova_data)){
 		$date3 = new DateTime($novaData);
 		$interval = $date1->diff($date3);
 		$novoPrazo = $userparams->novo_prazo;
