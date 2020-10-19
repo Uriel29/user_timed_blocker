@@ -55,6 +55,7 @@ if (JFactory::getApplication()->isClient('administrator')){
 		$user = JFactory::getUser();
 		$app = JFactory::getApplication();
 		$user = JFactory::getUser();
+          
 		//registerDate
 		//activation
 		//params
@@ -90,6 +91,7 @@ if (JFactory::getApplication()->isClient('administrator')){
 		$dias = $interval->days;
 		$alunos = $this->params->get('alunos');
 		$alunosGroups = $this->params->get('grupos_do_aluno');
+		
 		$assignedGroup = $this->params->get('assigned_group');
 		$ok = 'false';
 		$finalDate = $this->params->get('final_date');
@@ -99,14 +101,23 @@ if (JFactory::getApplication()->isClient('administrator')){
 		
 
 
-		//print_r($novoPrazo);
+		    if($user->authorise('core.admin')){
 
+		    }else{
 
-
-
-		if ($meses >= $finalDate and (!empty(array_intersect($alunosGroups, $user->groups)))){
+		 if ($meses >= $finalDate and (!empty(array_intersect($alunosGroups, $user->groups)))){
 			$ok = 'true';
+		 
+
 		}
+		    }
+                 
+             
+
+
+	      
+
+
 		if ($ok == 'true'){
 			// Get a db connection.
 			$db = JFactory::getDbo();
