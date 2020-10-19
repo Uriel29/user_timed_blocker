@@ -61,16 +61,24 @@ if (JFactory::getApplication()->isClient('administrator')){
 		//groups
 		//{"activate":0,"admin_style":"","admin_language":"","language":"","editor":"","timezone":""}
 
-		$date1 = new DateTime(date('Y-m-d H:i:s'));
-		$date2 = new DateTime($user->registerDate);
+		$dataHoje = new DateTime(date('Y-m-d H:i:s'));
+		
+		$dataRegistro = new DateTime($user->registerDate);
+
 		$userparams = json_decode($user->params);
 		if (($userparams->nova_data != '0000-00-00 00:00:00') and ($userparams->nova_data)){
-		$date3 = new DateTime($novaData);
-		$interval = $date1->diff($date3);
-		$novoPrazo = $userparams->novo_prazo;
+		
+		
+		$date3 = new DateTime($userparams->nova_data);
+
+		$interval = $dataHoje->diff($date3);
+
+
+		$novoPrazo = new DateTime($userparams->novo_prazo);
+
 		}
 		else{
-			$interval = $date1->diff($date2);
+			$interval = $dataHoje->diff($dataRegistro);
 		}
 		
 		// echo "Diferença " . $interval->y . " anos, " . $interval->m." meses, ".$interval->d." dias "; 
@@ -88,6 +96,14 @@ if (JFactory::getApplication()->isClient('administrator')){
 		if ($novoPrazo){
 		$finalDate = $novoPrazo;
 		}
+		
+
+
+		//print_r($novoPrazo);
+
+
+
+
 		if ($meses >= $finalDate and (!empty(array_intersect($alunosGroups, $user->groups)))){
 			$ok = 'true';
 		}
